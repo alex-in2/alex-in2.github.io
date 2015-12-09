@@ -4,98 +4,10 @@
     <meta charset="utf-8"/>
     <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    <meta name="generator" content="WoodWing Inception Publisher"><title>tetra</title><link rel='stylesheet' href='design.css'/><script src='design.js'></script><script src='vendor.js'></script>
+    <meta name="generator" content="WoodWing Inception Publisher"><title>My Story</title><link rel='stylesheet' href='design.css'/><script src='design.js'></script><script src='vendor.js'></script>
 </head>
 <body>
-<div class="articleContainer"><div class="hero"><figure><div style="background-image: url(&quot;DSC_3640_1.jpg&quot;); background-position: 48% 50%;"><div><figcaption><h1>Almost week in Austria, Czech Republic, Hungary, Ukraine <br></h1><h2></h2><h3></h3></figcaption></div></div></figure></div><div class="embed"><div><div id="map_random_index" class="map-container" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; border: 0; width: 100%; height: 100%"></div>
-
-<script>
-
-   var mapSettings = {};
-   mapSettings.mapType = 'roadmap';
-   mapSettings.zoom = 8;
-   mapSettings.center = {};
-   mapSettings.center.lat = -34.397;
-   mapSettings.center.lng = 150.644;
-
-   mapSettings.markers = [
-       {title: 'Test marker', lat: -34.397, lng: 150.644},
-       {title: 'Test marker 2', lat: -32.397, lng: 150.644}
-   ];
-
-   var articleEditor = $(".article-editor");
-   var articleIframe = $("iframe", articleEditor);
-   var articlePreview = $(".article-preview-box");
-   var previewIframe = $("iframe", articlePreview);
-
-   var mapNode;
-   if (previewIframe.length) {
-       mapNode = previewIframe.contents().find("#map_random_index")[0];
-   } else if (articleIframe.length){
-       mapNode = articleIframe.contents().find("#map_random_index")[0];
-   } else {
-       mapNode = $("#map_random_index")[0];
-   }
-   if (!window.googleScriptsLoaded) {
-       var myScript = document.createElement('script');
-       myScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAs1_GT6JV-_4u6UCDHnPKE79MdzSPoFwA&region=GB&sensor=true';
-       myScript.onload = function() {
-           window.googleScriptsLoaded = true;
-           createMap(mapSettings);
-       };
-       document.body.appendChild(myScript);
-   } else {
-       createMap(mapSettings);
-   }
-
-   function createMap(mapSettings) {
-       var mapCenter = new google.maps.LatLng(mapSettings.center.lat, mapSettings.center.lng);
-       var mapTypeId;
-       switch (mapSettings.mapType) {
-           case 'roadmap':
-               mapTypeId = google.maps.MapTypeId.ROADMAP;
-               break;
-           case 'sattelite':
-               mapTypeId = google.maps.MapTypeId.SATELLITE;
-               break;
-           case 'hybrid':
-               mapTypeId = google.maps.MapTypeId.HYBRID;
-               break;
-           case 'terrain':
-               mapTypeId = google.maps.MapTypeId.TERRAIN;
-               break;
-       }
-       var mapOptions = {
-           zoom: mapSettings.zoom,
-           center: mapCenter,
-           mapTypeId: mapTypeId,
-           panControl: false,
-           mapTypeControl: false,
-           scrollwheel: false
-       };
-       var googleMap = new google.maps.Map(mapNode, mapOptions);
-
-       //create markers
-       var googleMarkers = [];
-       mapSettings.markers.forEach(function(marker) {
-           var markerPosition = new google.maps.LatLng(marker.lat, marker.lng);
-           var markerAdded = new google.maps.Marker({
-               position: markerPosition,
-               map: googleMap,
-               title: marker.title
-           });
-           googleMarkers.push(markerAdded);
-       });
-
-       //zoom map to show all markers
-       var bounds = new google.maps.LatLngBounds();
-       for(var i=0; i<googleMarkers.length;i++) {
-           bounds.extend(googleMarkers[i].getPosition());
-       }
-       googleMap.fitBounds(bounds);
-   }
-
-</script></div></div><div class="author" default-text-field="name"><figure class="author-image"><div style="background-image: url(&quot;DSC_3118_1.jpg&quot;); background-position: 50% 50%;"></div></figure><div class="info-block"><div class="author-row"><span class="name">First day</span><div class="sep_name_loc"></div><span class="location">Budapest</span></div><div class="author-row"><span class="link">Sun, Sep 12, 2010</span></div></div></div><div class="grid"><div class="grid-container"><figure class="image"><div style="background-image: url(&quot;DSC_3118_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3148_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3196_1.jpg&quot;);"></div><figcaption></figcaption></figure></div><ul class="grid-list"><li class="position-highlight"><div class="inner"></div></li></ul></div><div class="author" default-text-field="name"><figure class="author-image"><div style="background-image: url(&quot;DSC_3268_1.jpg&quot;); background-position: 50% 50%;"></div></figure><div class="info-block"><div class="author-row"><span class="name">Second day</span><div class="sep_name_loc"></div><span class="location">Budapest, Wien</span></div><div class="author-row"><span class="link">Mon, Sep 13, 2010</span></div></div></div><div class="grid"><div class="grid-container"><figure class="image"><div style="background-image: url(&quot;DSC_3268_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3340_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3363_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3383_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3391_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3395_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3396_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3420_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3421_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3423_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3428_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3435_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3495_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3500_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3521_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3566_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3572_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3584_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3613_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3618_1.jpg&quot;);"></div><figcaption></figcaption></figure></div><ul class="grid-list"><li class="position-highlight"><div class="inner"></div></li></ul></div><div class="author" default-text-field="name"><figure class="author-image"><div style="background-image: url(&quot;DSC_3640_1.jpg&quot;); background-position: 50% 50%;"></div></figure><div class="info-block"><div class="author-row"><span class="name">Third day</span><div class="sep_name_loc"></div><span class="location">Wien, Prague</span></div><div class="author-row"><span class="link">Tue, Sep 14, 2010</span></div></div></div><div class="grid"><div class="grid-container"><figure class="image"><div style="background-image: url(&quot;DSC_3640_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3673_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3699_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3713_1.jpg&quot;);"></div><figcaption></figcaption></figure></div><ul class="grid-list"><li class="position-highlight"><div class="inner"></div></li></ul></div><div class="author" default-text-field="name"><figure class="author-image"><div style="background-image: url(&quot;DSC_3897_1.jpg&quot;); background-position: 50% 50%;"></div></figure><div class="info-block"><div class="author-row"><span class="name">Fourth day</span><div class="sep_name_loc"></div><span class="location">Karlovy Vary</span></div><div class="author-row"><span class="link">Wed, Sep 15, 2010</span></div></div></div><div class="grid"><div class="grid-container"><figure class="image"><div style="background-image: url(&quot;DSC_3897_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3916_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3920_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3964_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3994_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_3996_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4019_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4024_1.jpg&quot;);"></div><figcaption></figcaption></figure></div><ul class="grid-list"><li class="position-highlight"><div class="inner"></div></li></ul></div><div class="author" default-text-field="name"><figure class="author-image"><div style="background-image: url(&quot;DSC_4027_1.jpg&quot;); background-position: 50% 50%;"></div></figure><div class="info-block"><div class="author-row"><span class="name">Fifth day</span><div class="sep_name_loc"></div><span class="location">Lviv, Prague</span></div><div class="author-row"><span class="link">Thu, Sep 16, 2010</span></div></div></div><div class="grid"><div class="grid-container"><figure class="image"><div style="background-image: url(&quot;DSC_4027_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4034_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4038_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4094_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4096_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4098_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4131_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4142_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4145_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4171_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4198_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4208_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4243_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4301_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure class="image"><div style="background-image: url(&quot;DSC_4316_1.jpg&quot;);"></div><figcaption></figcaption></figure></div><ul class="grid-list"><li class="position-highlight"><div class="inner"></div></li></ul></div></div>
+<div class="articleContainer"><div class="hero"><figure><div style="background-image: url(&quot;DSC_4024_1.jpg&quot;); background-position: 48% 50%;"><div><figcaption><h1>A few days in Czech Republic, Ukraine <br></h1><h2></h2><h3></h3></figcaption></div></div></figure></div><div class="author" default-text-field="name"><figure class="author-image"><div style="background-image: url(&quot;DSC_4024_1.jpg&quot;); background-position: 50% 50%;"></div></figure><div class="info-block"><div class="author-row"><span class="name">First day</span><div class="sep_name_loc"></div><span class="location">Karlovy Vary</span></div><div class="author-row"><span class="link">Wed, Sep 15, 2010</span></div></div></div><div class="grid"><div class="grid-container"><figure grid-h="1" grid-w="1" grid-y="0" grid-x="0" class="image"><div style="background-image: url(&quot;DSC_4024_1.jpg&quot;);"></div><figcaption></figcaption></figure></div><ul class="grid-list"><li class="position-highlight"><div class="inner"></div></li></ul></div><div class="author" default-text-field="name"><figure class="author-image"><div style="background-image: url(&quot;DSC_4027_1.jpg&quot;); background-position: 50% 50%;"></div></figure><div class="info-block"><div class="author-row"><span class="name">Second day</span><div class="sep_name_loc"></div><span class="location">Lviv, Prague</span></div><div class="author-row"><span class="link">Thu, Sep 16, 2010</span></div></div></div><div class="grid"><div class="grid-container"><figure grid-h="1" grid-w="1" grid-y="0" grid-x="0" class="image"><div style="background-image: url(&quot;DSC_4027_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="0" grid-x="1" class="image"><div style="background-image: url(&quot;DSC_4034_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="2" grid-w="1" grid-y="1" grid-x="0" class="image"><div style="background-image: url(&quot;DSC_4038_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="2" grid-w="1" grid-y="3" grid-x="2" class="image"><div style="background-image: url(&quot;DSC_4094_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="2" grid-w="1" grid-y="1" grid-x="2" class="image"><div style="background-image: url(&quot;DSC_4096_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="0" grid-x="2" class="image"><div style="background-image: url(&quot;DSC_4098_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="3" grid-x="0" class="image"><div style="background-image: url(&quot;DSC_4131_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="4" grid-x="1" class="image"><div style="background-image: url(&quot;DSC_4142_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="1" grid-x="1" class="image"><div style="background-image: url(&quot;DSC_4145_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="4" grid-x="0" class="image"><div style="background-image: url(&quot;DSC_4171_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="6" grid-x="2" class="image"><div style="background-image: url(&quot;DSC_4198_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="2" grid-w="1" grid-y="2" grid-x="1" class="image"><div style="background-image: url(&quot;DSC_4208_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="5" grid-x="0" class="image"><div style="background-image: url(&quot;DSC_4243_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="5" grid-x="1" class="image"><div style="background-image: url(&quot;DSC_4301_1.jpg&quot;);"></div><figcaption></figcaption></figure><figure grid-h="1" grid-w="1" grid-y="5" grid-x="2" class="image"><div style="background-image: url(&quot;DSC_4316_1.jpg&quot;);"></div><figcaption></figcaption></figure></div><ul class="grid-list"><li class="position-highlight"><div class="inner"></div></li></ul></div></div>
 </body>
 </html>
 

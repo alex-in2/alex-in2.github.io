@@ -34988,10 +34988,10 @@ return GridList;
       // right to allow dragging items to the end of the grid.
       if (this.options.direction === "horizontal") {
         this.$element.width(
-          (this.gridList.grid.length + this._widestItem) * this._cellWidth);
+          (this.gridList.grid.length + (this.options.dragAndDrop ? this._widestItem : 0)) * this._cellWidth);
       } else {
         this.$element.height(
-          (this.gridList.grid.length + this._tallestItem) * this._cellHeight);
+          (this.gridList.grid.length + (this.options.dragAndDrop ? this._tallestItem : 0)) * this._cellHeight);
       }
     },
 
@@ -35137,6 +35137,9 @@ return GridList;
     function initGrid(gridBox) {
         // jQuery shortcut
         var $ = jQuery;
+
+        var isOutput = $('.articleContainer').length > 0;
+
         var grid = gridBox.find('.grid-container');
         var gridList = gridBox.find('.grid-list');
 
@@ -35144,14 +35147,53 @@ return GridList;
         var cols = 3;
         grid.find('> .image').each(function(){
             var item = $('<li><div class="inner"></div></li>');
-            item.attr({
-                'data-x': coords.x,
-                'data-y': coords.y,
-                'data-w': coords.w,
-                'data-h': coords.h
-            });
+            var itemAttr = {
+                'data-x': $(this).attr('grid-x') || coords.x,
+                'data-y': $(this).attr('grid-y') || coords.y,
+                'data-w': $(this).attr('grid-w') || coords.w,
+                'data-h': $(this).attr('grid-h') || coords.h
+            };
+            item.attr(itemAttr);
             item.find('.inner').append($(this));
             gridList.append(item);
+
+            item.on('dblclick', function(e){
+                e.preventDefault();
+                var data = {
+                    x: parseInt($(this).attr('data-x')),
+                    y: parseInt($(this).attr('data-y')),
+                    w: parseInt($(this).attr('data-w')),
+                    h: parseInt($(this).attr('data-h'))
+                };
+                if (data.w && data.h) {
+                    if (data.w === 1 && data.h === 1) {
+                        data.w = 2;
+                    } else if (data.w === 2 && data.h === 1) {
+                        data.w = 1;
+                        data.h = 2;
+                    } else if (data.w === 1 && data.h === 2) {
+                        data.w = 2;
+                    } else {
+                        data.w = 1;
+                        data.h = 1;
+                    }
+
+                    item.attr('data-w', data.w);
+                    item.attr('data-h', data.h);
+                    gridList.gridList('resizeItem', $(item), {
+                        w: data.w,
+                        h: data.h
+                    });
+                }
+            });
+
+            gridList.closest('.grid').trigger('gridchanged', [[{
+                $element: item,
+                x: itemAttr['data-x'],
+                y: itemAttr['data-y'],
+                w: itemAttr['data-w'],
+                h: itemAttr['data-h']
+            }]]);
 
             coords.x += 1;
             if (coords.x >= cols) {
@@ -35160,19 +35202,15 @@ return GridList;
             }
         });
 
-        /*gridList.append($('<li data-x="0" data-y="0" data-w="1" data-h="1"><div class="inner">1</div></li>'));
-        gridList.append($('<li data-x="1" data-y="0" data-w="1" data-h="1"><div class="inner">2</div></li>'));
-        gridList.append($('<li data-x="2" data-y="0" data-w="1" data-h="1"><div class="inner">3</div></li>'));
-        //gridList.append($('<li data-x="0" data-y="1" data-w="1" data-h="1"><div class="inner">4</div></li>'));*/
         gridList.appendTo(grid);
 
         gridList.gridList({
             direction: 'vertical',
             lanes: 3,
             widthHeightRatio: 4 / 3,
-            onChange: function(){
-                console.info(arguments);
-                gridList.trigger('grid-changed', {});
+            dragAndDrop: !isOutput,
+            onChange: function(data){
+                gridList.closest('.grid').trigger('gridchanged', [data]);
             }
         });
 
